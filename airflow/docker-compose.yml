@@ -1,0 +1,57 @@
+# airflow/docker-compose.yml
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  database:
+    build:
+      context: ../database
+    container_name: database
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    depends_on:
+      - postgres
+    ports:
+      - "5432:5432"
+
+  airflow:
+    build:
+      context: .
+    container_name: airflow
+    environment:
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:password@database:5432/weather
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    volumes:
+      - ./dags:/opt/airflow/dags
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    command: >
+      bash -c "
+      airflow db init &&
+      airflow webserver &
+      airflow scheduler
+      "
+
+  data_fetcher:
+    build:
+      context: ../data_fetching
+    container_name: data_fetcher
+    environment:
+      OPENWEATHER_API_KEY: YOUR_API_KEY
+    depends_on:
+      - database
+
+volumes:
+  postgres_data:

@@ -10,6 +10,7 @@ The purpose of this project is to build an end-to-end data ingestion pipeline th
 - Docker
 - Docker Compose
 - OpenWeatherMap API Key
+- Python 3.8+
 
 ### Steps
 1. Clone the repository:

@@ -1,7 +1,8 @@
 # Weather Data Ingestion Pipeline
 
 ## Project Overview
-This project ingests weather data from the OpenWeatherMap API and stores it in a PostgreSQL database. The pipeline is managed using Apache Airflow.
+The purpose of this project is to build an end-to-end data ingestion pipeline that fetches, processes, and stores weather data from the OpenWeather API. The data pipeline is automated using Apache Airflow for scheduling and orchestration, and Docker for containerization, ensuring a scalable and consistent environment.
+
 
 ## Setup Instructions
 

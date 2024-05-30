@@ -30,6 +30,29 @@ This project ingests weather data from the OpenWeatherMap API and stores it in a
 ## Usage
 The data fetching task runs hourly and fetches weather data for a list of predefined cities, storing the results in the PostgreSQL database.
 
+## Fetching Weather Data
+## API Key:
+Ensure you have an API key from OpenWeather. Set this key in the environment variables or directly in the docker-compose.yml under the data_fetcher service.
+
+## Trigger the DAG:
+In the Airflow web UI, trigger the weather_data_pipeline DAG to start the data ingestion process.
+
+## Monitoring:
+Monitor the progress and status of the DAG in the Airflow web UI. The DAG will fetch weather data, process it, and store it in the PostgreSQL database.
+
+##  Accessing the Data
+Connect to the Database:
+Use a database client to connect to the PostgreSQL database:
+
+1. Host: localhost
+2. Port: 5432
+3. User: postgres
+4. Password: password
+5. Database: weather
+
+## Query the Data:
+ Use SQL queries to access and analyze the weather data stored in the database.
+
 ## Directory Structure
 - `airflow/`: Contains the Airflow setup and DAG definition.
 - `database/`: Contains the database setup script and Dockerfile.

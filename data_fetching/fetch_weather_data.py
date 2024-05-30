@@ -7,27 +7,25 @@ import os
 API_KEY = os.getenv('OPENWEATHER_API_KEY')
 CITIES = ["London", "New York", "Tokyo", "Sydney", "Mumbai"]
 
-
 def fetch_weather_data(city):
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={
-        city}&appid={API_KEY}&units=metric"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     response = requests.get(url)
     data = response.json()
     return {
         "city": city,
         "temperature": data["main"]["temp"],
         "description": data["weather"][0]["description"],
-        "datetime": datetime.now()
+        "humidity": data["main"]["humidity"],
+        "wind_speed": data["wind"]["speed"],
+        "date": datetime.now().strftime('%Y-%m-%d'),
+        "time": datetime.now().strftime('%H:%M:%S')
     }
-
 
 def main():
     weather_data = [fetch_weather_data(city) for city in CITIES]
     df = pd.DataFrame(weather_data)
-    engine = create_engine(
-        'postgresql://postgres:password@database:5432/weather')
+    engine = create_engine('postgresql://postgres:password@database:5432/weather')
     df.to_sql('weather_data', engine, if_exists='append', index=False)
-
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,3 @@
-# airflow/docker-compose.yml
 version: '3'
 services:
   postgres:
@@ -10,7 +9,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
   database:
     build:
@@ -22,14 +21,15 @@ services:
     depends_on:
       - postgres
     ports:
-      - "5432:5432"
+      - "5434:5432"
 
   airflow:
     build:
-      context: .
+      context: ..
+      dockerfile: airflow/Dockerfile
     container_name: airflow
     environment:
-RFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:password@database:5432/weather
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:password@database:5432/weather
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
     volumes:
       - ./dags:/opt/airflow/dags
@@ -40,6 +40,7 @@ RFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:password@database:
     command: >
       bash -c "
       airflow db init &&
+      airflow users create --username ishmaello --firstname Ishmael --lastname Aba --role Admin --email ishmael@example.com --password ishmael123 &&
       airflow webserver &
       airflow scheduler
       "

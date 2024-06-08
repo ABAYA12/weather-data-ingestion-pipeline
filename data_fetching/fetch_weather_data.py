@@ -8,7 +8,7 @@ import os  # Module for accessing environment variables
 API_KEY = os.getenv('OPENWEATHER_API_KEY')
 
 # List of cities for which weather data will be fetched
-CITIES = ["London", "New York", "Tokyo", "Sydney", "Mumbai"]
+CITIES = ["London", "New York", "Tokyo", "Sydney", "Mumbai", "Accra"]
 
 def fetch_weather_data(city):
     """

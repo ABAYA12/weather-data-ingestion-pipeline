@@ -75,5 +75,5 @@ Use a database client to connect to the PostgreSQL database:
 - **SQLAlchemy**: SQL toolkit and Object-Relational Mapping (ORM) library.
 - **Matplotlib and Seaborn**: For visualization
 
-##Contact me:
+## Contact me:
 **Mail**: ishmael@trestleacademyghana.org

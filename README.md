@@ -1,5 +1,5 @@
 # Weather Data Ingestion Pipeline
-![weather data visuls](https://github.com/ABAYA12/weather-data-ingestion-pipeline/blob/main/image.png)
+![weather data visuls](https://github.com/ABAYA12/weather-data-ingestion-pipeline/blob/main/visual.png)
 
 ## Project Overview
 The purpose of this project is to build an end-to-end data ingestion pipeline that fetches, processes, and stores weather data from the OpenWeather API. The data pipeline is automated using Apache Airflow for scheduling and orchestration, and Docker for containerization, ensuring a scalable and consistent environment.

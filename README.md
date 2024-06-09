@@ -1,4 +1,6 @@
 # Weather Data Ingestion Pipeline
+
+## 12 CITIES IN GHANA
 ![weather data visuls](https://github.com/ABAYA12/weather-data-ingestion-pipeline/blob/main/visual.png)
 
 ## Project Overview

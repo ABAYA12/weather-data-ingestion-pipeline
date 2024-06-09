@@ -15,7 +15,7 @@ The purpose of this project is to build an end-to-end data ingestion pipeline th
 
 ### Steps
 1. Clone the repository:
-    ```bash
+    ```
     git clone https://github.com/yourusername/weather-data-ingestion.git
     cd weather-data-ingestion
     ```
@@ -23,7 +23,7 @@ The purpose of this project is to build an end-to-end data ingestion pipeline th
 2. Add your OpenWeatherMap API key to the `docker-compose.yml` file under the `data_fetcher` service.
 
 3. Build and start the Docker containers:
-    ```bash
+    ```
     cd airflow
     docker-compose up --build
     ```
@@ -35,7 +35,7 @@ The data fetching task runs hourly and fetches weather data for a list of predef
 
 ## Fetching Weather Data
 ## API Key:
-Ensure you have an API key from OpenWeather. Set this key in the environment variables or directly in the docker-compose.yml under the data_fetcher service.
+Ensure you have an API key from OpenWeather. Set this key directly in the docker-compose.yml under the data_fetcher service. But there is already a openweather API key there. You can generate your own key and insert it.
 
 ## Trigger the DAG:
 In the Airflow web UI, trigger the weather_data_pipeline DAG to start the data ingestion process.
@@ -61,6 +61,7 @@ Use a database client to connect to the PostgreSQL database:
 - `database/`: Contains the database setup script and Dockerfile.
 - `data_fetching/`: Contains the data fetching script and Dockerfile.
 - `requirements.txt`: Python dependencies.
+- `visualize_weather_data.py`: contains python code to visualize the weather data extracted.
 
 ## Technical Tools and Technologies
 - **Python**: Scripting language.
@@ -70,3 +71,7 @@ Use a database client to connect to the PostgreSQL database:
 - **Requests**: HTTP library for API calls.
 - **Pandas**: Data manipulation library.
 - **SQLAlchemy**: SQL toolkit and Object-Relational Mapping (ORM) library.
+- **Matplotlib and Seaborn**: For visualization
+
+##Contact me:
+**Mail**: ishmael@trestleacademyghana.org

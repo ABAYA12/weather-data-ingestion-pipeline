@@ -1,0 +1,11 @@
+city,temperature,description,humidity,wind_speed,date,time
+Accra,29.23,broken clouds,79,6.17,2024-06-09,15:26:42
+Kumasi,26.91,moderate rain,86,0.81,2024-06-09,15:26:42
+Sekondi-Takoradi,26.97,light rain,84,4.08,2024-06-09,15:26:42
+Cape Coast,26.65,overcast clouds,84,4.69,2024-06-09,15:26:43
+Tamale,37.56,few clouds,32,1.04,2024-06-09,15:26:43
+Sunyani,27.62,moderate rain,82,1.28,2024-06-09,15:26:43
+Bolgatanga,39.62,scattered clouds,28,0.37,2024-06-09,15:26:44
+Koforidua,27.07,light rain,83,2.76,2024-06-09,15:26:45
+Tema,29.23,broken clouds,79,6.17,2024-06-09,15:26:45
+Tarkwa,25.7,light rain,90,1.99,2024-06-09,15:26:45
